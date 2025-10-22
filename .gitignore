@@ -1,0 +1,51 @@
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environment
+.venv/
+
+#  Editor / IDE settings
+.vscode/
+.idea/
+
+# System & misc
+dir_structure.txt
+*.log
+*.tmp
+
+# Local queue & processing folders (auto-generated)
+queue/
+worker/inbox/
+worker/outbox/
+worker/processing/
+
+# Model files 
+Models/json_gen_model/*
+!Models/json_gen_model/README.md
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+env/
+.env
+
+# Models & large artifacts
+Models/
+worker/outbox/
+outbox/
+worker/inbox/
+worker/processing/
+worker/done/
+*.safetensors
+*.pt
+*.pth
+*.bin
+
+# Blender renders / temp
+**/tmp_renders/
+*.partial

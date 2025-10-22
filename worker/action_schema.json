@@ -1,0 +1,88 @@
+﻿{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Action Schema",
+  "type": "object",
+  "required": ["version", "actions"],
+  "properties": {
+    "version": {
+      "type": "string",
+      "enum": ["1.0"]
+    },
+    "actions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["action"],
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "create_primitive",
+              "add_object",
+              "transform",
+              "delete_all",
+              "move_object",
+              "scale_object",
+              "rotate_object",
+              "delete_object"
+            ]
+          },
+          "type": { "type": "string" },
+          "object_type": { "type": "string" },
+          "primitive": {
+            "type": "string",
+            "enum": ["CUBE", "SPHERE", "CONE", "CYLINDER", "TORUS", "PLANE", "SUZANNE"]
+          },
+          "name": { "type": "string" },
+          "position": { "$ref": "#/definitions/vec3" },
+          "rotation": { "$ref": "#/definitions/vec3" },
+          "scale": { "$ref": "#/definitions/vec3" },
+          "color": {
+            "anyOf": [
+              { "$ref": "#/definitions/vec3" },
+              { "$ref": "#/definitions/color" }
+            ]
+          },
+          "animation": {
+            "type": "object",
+            "properties": {
+              "name": { "type": "string" },
+              "speed": { "type": "number" }
+            },
+            "required": ["name"],
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false,
+        "allOf": [
+          {
+            "if": { "properties": { "action": { "const": "create_primitive" } } },
+            "then": { "required": ["primitive"] }
+          },
+          {
+            "if": { "properties": { "action": { "const": "add_object" } } },
+            "then": { "required": ["primitive"] }
+          },
+          {
+            "if": { "properties": { "action": { "const": "move_object" } } },
+            "then": { "required": ["name", "position"] }
+          }
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "vec3": {
+      "type": "array",
+      "items": { "type": "number" },
+      "minItems": 3,
+      "maxItems": 3
+    },
+    "color": {
+      "type": "array",
+      "items": { "type": "number" },
+      "minItems": 3,
+      "maxItems": 4
+    }
+  }
+}
