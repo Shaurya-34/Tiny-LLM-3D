@@ -22,7 +22,7 @@ Tiny-LLM-3D/
 │   ├── inbox_watcher.py         # watches for new jobs
 │   ├── action_schema.json       # JSON schema validation
 ├── Models/
-│   └── json_gen_model/          # fine-tuned model folder (add README here)
+│   └── json_gen_model/          # fine-tuned model folder 
 ├── outbox/                      # rendered output images
 └── requirements.txt
 ```
