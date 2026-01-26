@@ -1,17 +1,17 @@
-# 🧠 Tiny-LLM-3D  
+#  Tiny-LLM-3D  
 A minimal AI-powered 3D scene generator for Blender — converts natural language prompts into 3D object renders.
 
 ---
 
-## ✨ Features
-- 🧩 Uses a fine-tuned LLM to parse text prompts → structured JSON actions  
-- 🧱 Executes actions safely inside Blender  
-- 🎨 Automatically renders cinematic images  
-- 🧠 No cloud dependency — runs fully locally  
+##  Features
+-  Uses a fine-tuned LLM to parse text prompts → structured JSON actions  
+-  Executes actions safely inside Blender  
+-  Automatically renders cinematic images  
+-  No cloud dependency — runs fully locally  
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 ```
 Tiny-LLM-3D/
 ├── demo_prompt_to_render.py     # main script to run prompt → render
@@ -29,7 +29,7 @@ Tiny-LLM-3D/
 
 ---
 
-## ⚙️ Setup
+##  Setup
 
 1. **Clone the repo**
    ```bash
@@ -55,12 +55,12 @@ Tiny-LLM-3D/
 
 ---
 
-## 🧠 Model Setup
+##  Model Setup
 
 This project uses a **local fine-tuned model** to convert natural language prompts into structured JSON.  
 The model is **not included** in this repository to keep it lightweight.
 
-### 🪶 Option 1: Use your own fine-tuned model
+###  Option 1: Use your own fine-tuned model
 Place your Hugging Face or fine-tuned model inside:
 ```
 Tiny-LLM-3D/Models/json_gen_model/
@@ -78,7 +78,7 @@ Then run:
 python worker/infer.py "add a red cube at (0,0,0)" --model-dir "Models/json_gen_model"
 ```
 
-### ⚙️ Option 2: Use rule-based fallback
+###  Option 2: Use rule-based fallback
 If you don't have a model, Tiny-LLM-3D will **automatically switch** to a built-in rule-based mode that still generates valid JSON for simple prompts.
 
 You’ll see:
@@ -90,9 +90,9 @@ That’s normal and safe — this fallback ensures the demo still runs fully off
 
 ---
 
-## 🚀 Run the Demo
+##  Run the Demo
 
-> 💡 **Tip:** Before running any `infer.py` commands, make sure the inbox watcher is active.  
+>  **Tip:** Before running any `infer.py` commands, make sure the inbox watcher is active.  
 Start it in a separate terminal:
 ```bash
 python worker/inbox_watcher.py --blender "C:/Path/to/blender.exe" --inbox worker/inbox --worker worker/blender_executor.py
@@ -112,7 +112,7 @@ Outputs will appear in `outbox/`.
 
 ---
 
-## 🖼️ Example Outputs
+##  Example Outputs
 
 | Prompt | Render |
 |--------|---------|
@@ -122,7 +122,7 @@ Outputs will appear in `outbox/`.
 
 ---
 
-## 📦 Requirements
+##  Requirements
 ```
 torch
 transformers
@@ -133,6 +133,6 @@ tqdm
 
 ---
 
-## 🧱 Credits
+##  Credits
 Created by [Shaurya-34](https://github.com/Shaurya-34)  
 Inspired by the goal of bridging LLMs with 3D creative workflows.
